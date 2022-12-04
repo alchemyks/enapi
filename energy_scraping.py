@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 
 
-def get_addresses():
+def get_addresses(count=None):
     url = 'https://www.energy.mk.ua/grafik-obmezhennya-spozhyvachiv/?type=gao&fil=15'
     headers = {
         'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.246"}
@@ -10,6 +10,7 @@ def get_addresses():
     bs = BeautifulSoup(r.content, 'html5lib')
     table_rows = bs.find('tbody', attrs={'id': 'output'}).find_all('tr')
     json_array = []
+
     for table_row in table_rows:
         columns = table_row.find_all('td')
         addresses = columns[1]
