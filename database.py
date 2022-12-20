@@ -40,7 +40,7 @@ sql_create_table_street = """ CREATE TABLE IF NOT EXISTS  streets(
                                 ); """
 
 sql_create_table_houses = """CREATE TABLE IF NOT EXISTS houses(
-                                house_id   INTEGER PRIMARY KEY,
+                                house_id   INTEGER PRIMARY KEY ,
                                 number     TEXT    NOT NULL,
                                 lat        TEXT,
                                 lng        TEXT,
@@ -48,6 +48,10 @@ sql_create_table_houses = """CREATE TABLE IF NOT EXISTS houses(
                                 FOREIGN KEY (street_id)
                                 REFERENCES streets (street_id) 
                                 );"""
+
+sql_create_table_time_off = """CREATE TABLE IF NOT EXISTS time_off(
+                                time_off_id INTEGER PRIMARY KEY,
+                                createt_at TEXT DEFAULT CERRENT_TIMESTAMP, """
 
 gr = """CREATE TABLE supplier_groups (
 	group_id integer PRIMARY KEY,
